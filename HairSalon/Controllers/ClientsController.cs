@@ -16,22 +16,18 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Create(int stylistId)
-    { 
-      if(stylistId != 0)
-      {          
-      Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == stylistId);
-      ViewBag.StylistName = chosenStylist.Name;
-      ViewBag.StylistId = stylistId;
-      return View();
-      }
-      else
-      {
-        ViewBag.Stylists = _db.Stylists.ToList();
-        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
-        return View();
-      }
-    }
+   
+    public ActionResult Create (int stylistId)
+    {   
+        if()                    
+        Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == stylistId);
+        ViewBag.StylistName = chosenStylist.Name;
+        ViewBag.StylistId = stylistId;      
+        
+        
+        return View();      
+    }  
+    
 
     [HttpPost]
     public ActionResult Create(Client client)
@@ -41,8 +37,7 @@ namespace HairSalon.Controllers
       Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == client.StylistId);
       return RedirectToAction("Details", "Stylists", new { id = client.StylistId});
     }
-
-    
   }
-
+    
 }
+
