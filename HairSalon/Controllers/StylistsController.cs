@@ -36,7 +36,7 @@ namespace ToDoList.Controllers
 
     public ActionResult Details(int id)
     {
-      Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      Stylist chosenStylist = _db.Stylists.Include(stylist => stylist.Clients).FirstOrDefault(stylist => stylist.StylistId == id);
       return View(chosenStylist);
     }
 

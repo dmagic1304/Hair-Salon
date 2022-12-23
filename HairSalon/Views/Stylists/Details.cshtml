@@ -2,6 +2,8 @@
   Layout = "_Layout";
 }
 
+@using HairSalon.Models;
+
 <h2>Stylist: @Model.Name</h2>
 <p>Specializes in: @Model.Specialization</p>
 
@@ -9,4 +11,13 @@
 @if(Model.Clients == 0)
 {
   <h4>There are no clients for this stylist yet</h4>
+}
+else
+{
+  <ul>
+  @foreach (Client client in Model.Clients)
+  {
+    <li>@client.Name</li>
+  }
+  </ul>
 }
