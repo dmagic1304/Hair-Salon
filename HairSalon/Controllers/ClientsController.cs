@@ -19,11 +19,15 @@ namespace HairSalon.Controllers
    
     public ActionResult Create (int stylistId)
     {   
-        if()                    
+        if(stylistId != 0)
+        {                    
         Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == stylistId);
         ViewBag.StylistName = chosenStylist.Name;
-        ViewBag.StylistId = stylistId;      
-        
+        ViewBag.StylistIdSpecific = stylistId; 
+        }
+        ViewBag.Stylists =  _db.Stylists.ToList();
+        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+
         
         return View();      
     }  

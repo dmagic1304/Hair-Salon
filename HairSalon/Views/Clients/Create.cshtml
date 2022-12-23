@@ -3,7 +3,7 @@
 }
 @model HairSalon.Models.Client;
 
-@if(ViewBag.StylistId != null)
+@if(ViewBag.StylistIdSpecific != null)
 {
   <h4>Add a new client for @ViewBag.StylistName</h4>
 
@@ -11,7 +11,7 @@
   {
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
-    @Html.Hidden("StylistId", "@ViewBag.StylistId")
+    @Html.Hidden("StylistId", "@ViewBag.StylistIdSpecific")
 
     <input type="submit" value="Add client"/>
   }  
