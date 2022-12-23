@@ -34,5 +34,11 @@ namespace ToDoList.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Details(int id)
+    {
+      Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(chosenStylist);
+    }
+
   }
 }
