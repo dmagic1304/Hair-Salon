@@ -29,7 +29,7 @@ namespace HairSalon.Controllers
       _db.Clients.Add(client);
       _db.SaveChanges();
       Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == client.StylistId);
-      return RedirectToAction("Details", "Stylists", chosenStylist);
+      return RedirectToAction("Details", "Stylists", new { id = client.StylistId});
     }
 
     
