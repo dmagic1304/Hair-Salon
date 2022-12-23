@@ -11,8 +11,25 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
-    <div class="container">
-      @RenderBody()
+    <div class="jumbotron">
+      <h1 class="display-4">Eau Claire's Salon</h1>
+      <p class="lead">Salon management tool</p>
+      <hr class="my-4">
+      <p class="lead">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active mr-4">
+              @Html.ActionLink("All Stylists", "Index", "Stylists")<br>
+            </li>
+            <li class="nav-item active">
+              @Html.ActionLink("All Clients", "Index", "Clients")<br>
+            </li>           
+          </ul>
+        </div>
+      </nav>
+      </p>
     </div>
+    @RenderBody()    
   </body>
 </html>
