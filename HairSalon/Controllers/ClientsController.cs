@@ -23,6 +23,15 @@ namespace HairSalon.Controllers
       return View();
     }
 
+    [HttpPost]
+    public ActionResult Create(Client client)
+    {
+      _db.Clients.Add(client);
+      _db.SaveChanges();
+      Stylist chosenStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == client.StylistId);
+      return RedirectToAction("Details", "Stylists", chosenStylist);
+    }
+
     
   }
 

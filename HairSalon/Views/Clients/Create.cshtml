@@ -4,13 +4,13 @@
 
 @model HairSalon.Models.Client;
 
-<h4>Add a new Client for @ViewBag.StylistName</h4>
+<h4>Add a new client for @ViewBag.StylistName</h4>
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-  @Html.Hidden("StylistId", ViewBag.StylistId)
+  @Html.Hidden("StylistId", "@ViewBag.StylistId")
 
   <input type="submit" value="Add client"/>
 }
