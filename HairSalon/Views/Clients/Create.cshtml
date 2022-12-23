@@ -1,16 +1,36 @@
 @{
   Layout = "_Layout";
 }
-
 @model HairSalon.Models.Client;
 
-<h4>Add a new client for @ViewBag.StylistName</h4>
+@if(ViewBag.StylistId != null)
+{
+  <h4>Add a new client for @ViewBag.StylistName</h4>
 
-@using (Html.BeginForm())
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    @Html.Hidden("StylistId", "@ViewBag.StylistId")
+
+    <input type="submit" value="Add client"/>
+  }  
+}
+else if (ViewBag.Stylists.Count == 0)
+{
+  <h4>There are not stylists in the database. Pleae add a stylist before adding a client to the list!</h4>
+  @Html.ActionLink("Add a stylist", "Create", "Stylists")
+}
+else
+{
+  @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-  @Html.Hidden("StylistId", "@ViewBag.StylistId")
 
-  <input type="submit" value="Add client"/>
+  @Html.LabelFor(model => model.Stylist)
+  @Html.DropDownList("StylistId")
+
+  <input type="submit" value="Add new client" class="btn btn-default" />
+}
 }
