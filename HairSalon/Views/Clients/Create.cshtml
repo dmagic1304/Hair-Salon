@@ -10,6 +10,7 @@
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
+  @Html.Hidden("StylistId", ViewBag.StylistId)
 
   <input type="submit" value="Add client"/>
 }
