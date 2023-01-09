@@ -23,7 +23,7 @@ _This web application displays the use of MySQL databases with EF Core and Asp N
 ## Setup/Installation Requirements
 
 * _Clone [this](https://github.com/dmagic1304/Hair-Salon) repositiory to your desktop_
-* _Import the database located at ~Desktop/HairSalon.Solution/dominik_magic.sql using MySQL Workbench
+* _Import the database located at ~Desktop/HairSalon.Solution/dominik_magic.sql using MySQL Workbench. When importing the database, make sure to name it dominik_magic
 * _Using your terminal, navigate to the cloned project folder located on your desktop_
 * _Once inside of the root folder, first create .gitignore file with "touch .gitignore" command and then use "echo "*/obj/ */bin/ */appsettings.json" > .gitignore" command to ignore necessary folders/files_
 * _Now navigate to HairSalon folder with "cd HairSalon" and then create appsettings.json file with "touch appsettings.json" command. Use the following command to fill the file with necessary data (make sure to ender your personal MySQL password instead of [YOURPASSWORD]):
